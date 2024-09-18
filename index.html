@@ -217,19 +217,38 @@
         </section>
     </main>
 
-    <button id="downloadCV" class="en active">Download CV</button>
-    <button id="downloadCV" class="zh">下载简历</button>
-
     <script>
         const languageToggle = document.getElementById('languageToggle');
         const enElements = document.querySelectorAll('.en');
         const zhElements = document.querySelectorAll('.zh');
 
-        languageToggle.addEventListener('click', () => {
-            enElements.forEach(el => el.classList.toggle('active'));
-            zhElements.forEach(el => el.classList.toggle('active'));
-            languageToggle.textContent = languageToggle.textContent === '中文' ? 'English' : '中文';
-        });
+        function toggleLanguage() {
+            const isEnglish = languageToggle.textContent === '中文';
+            const elementsToShow = isEnglish ? zhElements : enElements;
+            const elementsToHide = isEnglish ? enElements : zhElements;
+
+            // Hide current language elements
+            elementsToHide.forEach(el => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.classList.remove('active');
+                }, 500); // Wait for fade out animation to complete
+            });
+
+            // Show new language elements
+            setTimeout(() => {
+                elementsToShow.forEach(el => {
+                    el.classList.add('active');
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                    }, 50); // Small delay to ensure the display change has taken effect
+                });
+            }, 500); // Wait for fade out animation to complete
+
+            languageToggle.textContent = isEnglish ? 'English' : '中文';
+        }
+
+        languageToggle.addEventListener('click', toggleLanguage);
     </script>
 </body>
 
