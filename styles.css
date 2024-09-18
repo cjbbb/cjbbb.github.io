@@ -99,13 +99,10 @@ ul {
 .en,
 .zh {
     display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
 }
 
 .active {
     display: block;
-    opacity: 1;
 }
 
 .social-media {
@@ -122,4 +119,9 @@ ul {
 
 .social-media a:hover {
     color: #2c3e50;
+}
+
+/* 添加这个新样式 */
+.language-container {
+    position: relative;
 }

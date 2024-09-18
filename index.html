@@ -227,28 +227,27 @@
             const elementsToShow = isEnglish ? zhElements : enElements;
             const elementsToHide = isEnglish ? enElements : zhElements;
 
-            // Hide current language elements
-            elementsToHide.forEach(el => {
-                el.style.opacity = '0';
-                setTimeout(() => {
-                    el.classList.remove('active');
-                }, 500); // Wait for fade out animation to complete
-            });
+            elementsToHide.forEach(el => el.classList.remove('active'));
 
-            // Show new language elements
+            // 添加一个小延迟，让隐藏动画有时间开始
             setTimeout(() => {
-                elementsToShow.forEach(el => {
-                    el.classList.add('active');
-                    setTimeout(() => {
-                        el.style.opacity = '1';
-                    }, 50); // Small delay to ensure the display change has taken effect
-                });
-            }, 500); // Wait for fade out animation to complete
+                elementsToShow.forEach(el => el.classList.add('active'));
+            }, 50);
 
             languageToggle.textContent = isEnglish ? 'English' : '中文';
         }
 
         languageToggle.addEventListener('click', toggleLanguage);
+
+        // 保持原有的 language-container 包装逻辑不变
+        document.querySelectorAll('.en, .zh').forEach(el => {
+            if (!el.parentElement.classList.contains('language-container')) {
+                const container = document.createElement('div');
+                container.className = 'language-container';
+                el.parentNode.insertBefore(container, el);
+                container.appendChild(el);
+            }
+        });
     </script>
 </body>
 
