@@ -69,7 +69,7 @@
                 <p class="zh">09/2018 - 06/2022 | 北京,中国</p>
                 <p class="en active">Major courses: Software Development, Database, Operating Systems, Object-Oriented
                     Programming, etc.</p>
-                <p class="zh">主要课程：软件开发,数据库,操作系统,面向对象编程等</p>
+                <p class="zh">主要课程：软件开���,数据库,操作系统,面向对象编程等</p>
             </div>
         </section>
 
@@ -224,30 +224,12 @@
 
         function toggleLanguage() {
             const isEnglish = languageToggle.textContent === '中文';
-            const elementsToShow = isEnglish ? zhElements : enElements;
-            const elementsToHide = isEnglish ? enElements : zhElements;
-
-            elementsToHide.forEach(el => el.classList.remove('active'));
-
-            // 添加一个小延迟，让隐藏动画有时间开始
-            setTimeout(() => {
-                elementsToShow.forEach(el => el.classList.add('active'));
-            }, 50);
-
+            enElements.forEach(el => el.classList.toggle('active'));
+            zhElements.forEach(el => el.classList.toggle('active'));
             languageToggle.textContent = isEnglish ? 'English' : '中文';
         }
 
         languageToggle.addEventListener('click', toggleLanguage);
-
-        // 保持原有的 language-container 包装逻辑不变
-        document.querySelectorAll('.en, .zh').forEach(el => {
-            if (!el.parentElement.classList.contains('language-container')) {
-                const container = document.createElement('div');
-                container.className = 'language-container';
-                el.parentNode.insertBefore(container, el);
-                container.appendChild(el);
-            }
-        });
     </script>
 </body>
 
