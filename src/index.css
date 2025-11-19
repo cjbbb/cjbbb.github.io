@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+@keyframes slide-up {
+  0%,
+  20% {
+    transform: translateY(0);
+  }
+
+  25%,
+  45% {
+    transform: translateY(-100%);
+  }
+
+  50%,
+  70% {
+    transform: translateY(-200%);
+  }
+
+  75%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
