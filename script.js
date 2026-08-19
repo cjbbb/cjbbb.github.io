@@ -12,6 +12,11 @@
   const email = "jianbincui@yahoo.com";
   const themeStorageKey = "jianbin-cv-theme-v2";
   const languageStorageKey = "jianbin-cv-language";
+  const mainContent = document.querySelector("#main-content");
+  const languageTransitionDuration = 100;
+  const reducedMotionLanguageTransitionDuration = 80;
+  let languageTransitionId = 0;
+  let pendingLanguage = null;
 
   const chineseTranslations = {
     "skip.content": "跳转到主要内容",
@@ -50,7 +55,7 @@
     "experience.sinopec.1": "使用 Java Spring Boot、MySQL 和 Hibernate 重构内部采购平台的商品详情模块。",
     "experience.sinopec.2": "通过优化索引和异步数据处理，缩短查询响应时间并避免线程阻塞。",
     "experience.mcmaster.role": "人工智能研究实习生",
-    "experience.mcmaster.1": "与他人共同发表 <em>Interpretable Deep Graph-level Clustering: A Prototype-based Approach</em>，论文被 ICPR 2024 接收。",
+    "experience.mcmaster.1": "以第一作者身份发表 <em>Interpretable Deep Graph-level Clustering: A Prototype-based Approach</em>，论文发表于 ICPR 2024。",
     "experience.mcmaster.2": "提出并使用 PyTorch 实现无监督、可解释的图聚类框架。",
     "education.index": "02 / 教育经历",
     "education.title": "教育经历",
@@ -65,13 +70,15 @@
     "research.summary": "提出一种可解释的深度图级聚类框架，在对未标注图数据进行聚类的同时解释样本归属原因，并在六个基准数据集上验证了方法效果。",
     "research.readPaper": "阅读论文",
     "research.sourceCode": "查看源码",
-    "research.note": "Jianbin Cui & Lingyang Chu · Springer LNCS 15304",
+    "research.note": "Jianbin Cui & Lingyang Chu · ICPR 2024 Oral",
     "research.tags.graph": "图机器学习",
     "research.tags.interpretability": "可解释性",
     "research.tags.clustering": "聚类",
     "project.index": "04 / 项目",
     "project.title": "项目",
     "project.label": "开源项目 · 2024",
+    "project.stars": "GitHub 3 万+ Stars",
+    "project.starsLabel": "GitHub 3 万+ Stars",
     "project.summary": "一个由大语言模型驱动的开源求职申请代理，支持本地运行，将重复流程转化为有引导的操作。",
     "project.view": "查看项目",
     "project.note": "核心贡献者 / 协作者",
@@ -154,8 +161,7 @@
     }
   }
 
-  function setLanguage(language) {
-    const nextLanguage = language === "zh" ? "zh" : "en";
+  function applyLanguage(nextLanguage) {
     const isChinese = nextLanguage === "zh";
     root.dataset.language = nextLanguage;
     root.lang = isChinese ? "zh-CN" : "en";
@@ -211,6 +217,34 @@
     }
   }
 
+  function setLanguage(language, { animate = false } = {}) {
+    const nextLanguage = language === "zh" ? "zh" : "en";
+
+    if (!animate || !mainContent) {
+      applyLanguage(nextLanguage);
+      return;
+    }
+
+    const transitionId = ++languageTransitionId;
+    pendingLanguage = nextLanguage;
+    const transitionDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? reducedMotionLanguageTransitionDuration
+      : languageTransitionDuration;
+
+    mainContent.classList.add("is-language-switching");
+    window.setTimeout(() => {
+      if (transitionId !== languageTransitionId || pendingLanguage !== nextLanguage) return;
+
+      pendingLanguage = null;
+      applyLanguage(nextLanguage);
+      window.requestAnimationFrame(() => {
+        if (transitionId === languageTransitionId) {
+          mainContent.classList.remove("is-language-switching");
+        }
+      });
+    }, transitionDuration);
+  }
+
   setTheme(storedTheme === "dark" || storedTheme === "light" ? storedTheme : preferredTheme);
   setLanguage(storedLanguage === "zh" ? "zh" : "en");
 
@@ -219,7 +253,8 @@
   });
 
   languageToggle?.addEventListener("click", () => {
-    setLanguage(root.dataset.language === "zh" ? "en" : "zh");
+    const currentLanguage = pendingLanguage ?? root.dataset.language;
+    setLanguage(currentLanguage === "zh" ? "en" : "zh", { animate: true });
   });
 
   function closeMenu() {

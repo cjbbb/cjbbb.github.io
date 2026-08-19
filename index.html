@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <title>Cui Jianbin 崔建彬 — Resume</title>
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
 
@@ -92,7 +92,7 @@
               <span class="gradient-text">崔建彬</span>
             </h1>
             <div class="hero-actions">
-              <a class="button button-primary" href="./CV_Cui%2CJianbin.pdf" download="Jianbin-Cui-Resume.pdf">
+              <a class="button button-primary" href="./assets/jianbin-cui-resume.pdf" download="Jianbin-Cui-Resume.pdf">
                 <span data-i18n="actions.download">Download CV</span>
                 <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h13M13 6l6 6-6 6"></path>
@@ -132,7 +132,7 @@
             <figure class="hero-photo-frame">
               <img
                 class="hero-photo"
-                src="./个人照片.png"
+                src="./assets/profile-photo.png"
                 alt="Jianbin Cui smiling by the water"
                 data-i18n-alt="hero.photoAlt"
                 width="950"
@@ -230,7 +230,7 @@
                   <span class="location" data-i18n="location.hamiltonCanada">Hamilton, Canada</span>
                 </div>
                 <ul class="experience-list">
-                  <li data-i18n-html="experience.mcmaster.1">Co-authored <em>Interpretable Deep Graph-level Clustering: A Prototype-based Approach</em>, accepted at ICPR 2024.</li>
+                  <li data-i18n-html="experience.mcmaster.1">First author of <em>Interpretable Deep Graph-level Clustering: A Prototype-based Approach</em>, published at ICPR 2024.</li>
                   <li data-i18n="experience.mcmaster.2">Proposed an unsupervised, interpretable graph clustering framework implemented with PyTorch.</li>
                 </ul>
                 <div class="tag-row" aria-label="Technologies used" data-i18n-label="labels.technologies">
@@ -255,9 +255,14 @@
               <div class="timeline-marker" aria-hidden="true"><span></span></div>
               <div class="timeline-content">
                 <div class="timeline-header">
-                  <div>
-                    <p class="role-kicker" data-i18n="education.master.kicker">Graduate study</p>
-                    <h3>McMaster University</h3>
+                  <div class="education-school">
+                    <span class="school-icon school-icon-mcmaster" aria-hidden="true">
+                      <img class="school-logo" src="./assets/mcmaster-logo.webp" alt="" width="48" height="48" decoding="async" />
+                    </span>
+                    <div>
+                      <p class="role-kicker" data-i18n="education.master.kicker">Graduate study</p>
+                      <h3>McMaster University</h3>
+                    </div>
                   </div>
                   <span class="location" data-i18n="location.hamiltonOntario">Hamilton, Ontario</span>
                 </div>
@@ -270,9 +275,14 @@
               <div class="timeline-marker" aria-hidden="true"><span></span></div>
               <div class="timeline-content">
                 <div class="timeline-header">
-                  <div>
-                    <p class="role-kicker" data-i18n="education.bachelor.kicker">Undergraduate study</p>
-                    <h3>Beihang University</h3>
+                  <div class="education-school">
+                    <span class="school-icon school-icon-beihang" aria-hidden="true">
+                      <img class="school-logo" src="./assets/beihang-logo.jpg" alt="" width="48" height="48" decoding="async" />
+                    </span>
+                    <div>
+                      <p class="role-kicker" data-i18n="education.bachelor.kicker">Undergraduate study</p>
+                      <h3>Beihang University</h3>
+                    </div>
                   </div>
                   <span class="location" data-i18n="location.beijing">Beijing, China</span>
                 </div>
@@ -311,12 +321,12 @@
                     <path d="M14 5h5v5M19 5l-8 8"></path><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path>
                   </svg>
                 </a>
-                <span class="project-note" data-i18n="research.note">Jianbin Cui &amp; Lingyang Chu · Springer LNCS 15304</span>
+                <span class="project-note" data-i18n="research.note">Jianbin Cui &amp; Lingyang Chu · ICPR 2024 Oral</span>
               </div>
             </div>
             <div class="project-side research-side">
               <div class="research-visual" aria-hidden="true">
-                <img src="./research-idgc.png" alt="" width="1698" height="956" />
+                <img src="./assets/research-idgc.png" alt="" width="1698" height="956" />
               </div>
               <div class="tag-row project-tags" aria-label="Research technologies" data-i18n-label="labels.researchTechnologies">
                 <span data-i18n="research.tags.graph">Graph ML</span><span data-i18n="research.tags.interpretability">Interpretability</span><span data-i18n="research.tags.clustering">Clustering</span>
@@ -335,7 +345,14 @@
 
           <article class="project-card spotlight-card reveal reveal-delay-1">
             <div class="project-main">
-              <div class="project-label"><span class="project-glyph" aria-hidden="true">✦</span> <span data-i18n="project.label">Open source · 2024</span></div>
+              <div class="project-label">
+                <span class="project-glyph" aria-hidden="true">✦</span>
+                <span data-i18n="project.label">Open source · 2024</span>
+                <span class="project-stat" data-i18n-label="project.starsLabel" aria-label="30k+ GitHub stars">
+                  <strong>30k+</strong>
+                  <span data-i18n="project.stars">GitHub stars</span>
+                </span>
+              </div>
               <h3>Auto_Jobs_Applier_AIHawk</h3>
               <p class="project-summary" data-i18n="project.summary">An open-source job application agent powered by large language models, designed to run locally and turn a repetitive workflow into a guided one.</p>
               <div class="project-actions">

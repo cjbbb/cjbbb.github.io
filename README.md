@@ -7,7 +7,7 @@ A static, GitHub Pages-ready personal resume built with plain HTML, CSS, and Jav
 - `index.html` — page structure and resume content
 - `styles.css` — responsive visual system, dark mode, print styles, and reduced-motion support
 - `script.js` — theme toggle, mobile navigation, scroll progress, reveal states, and copy-email feedback
-- `CV_Cui,Jianbin.pdf` — downloadable resume source
+- `assets/` — school logos, profile photo, favicon, research image, and downloadable resume PDF
 
 ## Deploy to GitHub Pages
 
