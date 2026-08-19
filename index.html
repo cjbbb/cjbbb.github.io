@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta
+      name="description"
+      content="The personal resume and selected work of Cui Jianbin, a software developer based in Toronto."
+    />
+    <meta property="og:title" content="Cui Jianbin 崔建彬 — Resume" />
+    <meta
+      property="og:description"
+      content="Software developer building dependable systems and thoughtful interfaces."
+    />
+    <meta property="og:type" content="website" />
+    <title>Cui Jianbin 崔建彬 — Resume</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content" data-i18n="skip.content">Skip to content</a>
+
+    <div class="page-shell" id="top">
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+
+      <header class="site-header" data-header>
+        <div class="header-inner container">
+          <a class="wordmark" href="#top" aria-label="Cui Jianbin home" data-i18n-label="brand.home">
+            <span class="wordmark-mark" aria-hidden="true">JC</span>
+            <span class="wordmark-name">Cui Jianbin</span>
+          </a>
+
+          <nav class="site-nav" id="site-navigation" data-site-nav aria-label="Primary navigation" data-i18n-label="navigation.primary">
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#experience" data-i18n="nav.experience">Experience</a>
+            <a href="#education" data-i18n="nav.education">Education</a>
+            <a href="#research" data-i18n="nav.research">Research</a>
+            <a href="#projects" data-i18n="nav.projects">Projects</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+          </nav>
+
+          <div class="header-actions">
+            <button
+              class="icon-button theme-toggle"
+              type="button"
+              data-theme-toggle
+              aria-label="Switch to dark mode"
+              aria-pressed="false"
+            >
+              <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"></path>
+              </svg>
+              <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 15.2A8.4 8.4 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"></path>
+              </svg>
+            </button>
+            <button
+              class="button button-small button-quiet language-toggle"
+              type="button"
+              data-language-toggle
+              aria-label="Switch to Chinese"
+              aria-pressed="false"
+            >
+              中文
+            </button>
+            <button
+              class="icon-button menu-toggle"
+              type="button"
+              data-menu-toggle
+              aria-label="Open navigation"
+              aria-expanded="false"
+              aria-controls="site-navigation"
+            >
+              <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="scroll-progress" aria-hidden="true"><span data-progress></span></div>
+      </header>
+
+      <main id="main-content">
+        <section class="hero container" id="about" aria-labelledby="hero-title">
+          <div class="hero-copy reveal">
+            <h1 id="hero-title">
+              Cui Jianbin
+              <span class="gradient-text">崔建彬</span>
+            </h1>
+            <div class="hero-actions">
+              <a class="button button-primary" href="./CV_Cui%2CJianbin.pdf" download="Jianbin-Cui-Resume.pdf">
+                <span data-i18n="actions.download">Download CV</span>
+                <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6"></path>
+                </svg>
+              </a>
+              <div class="hero-social-actions">
+                <a
+                  class="icon-button social-link"
+                  href="https://www.linkedin.com/in/jianbin-cui/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                >
+                  <svg class="icon icon-social" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5.24 8.66H8.3V18H5.24V8.66Zm1.53-4.64c.98 0 1.77.8 1.77 1.77 0 .98-.79 1.77-1.77 1.77S5 6.77 5 5.79c0-.97.79-1.77 1.77-1.77ZM9.9 8.66h2.93v1.28h.04c.41-.78 1.41-1.6 2.9-1.6 3.1 0 3.67 2.04 3.67 4.69V18h-3.05v-4.41c0-1.05-.02-2.4-1.46-2.4-1.46 0-1.68 1.14-1.68 2.32V18H9.9V8.66Z"></path>
+                  </svg>
+                </a>
+                <a
+                  class="icon-button social-link"
+                  href="https://github.com/cjbbb"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  title="GitHub"
+                >
+                  <svg class="icon icon-social" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3.3a8.7 8.7 0 0 0-2.75 16.95c.44.08.6-.19.6-.42v-1.65c-2.44.53-2.95-1.03-2.95-1.03-.4-1.02-.98-1.3-.98-1.3-.8-.55.06-.54.06-.54.88.06 1.35.9 1.35.9.78 1.34 2.05.95 2.55.73.08-.57.31-.95.56-1.17-1.95-.22-4-.98-4-4.35 0-.96.34-1.75.9-2.37-.09-.22-.39-1.12.09-2.34 0 0 .74-.24 2.42.9a8.4 8.4 0 0 1 4.4 0c1.68-1.14 2.42-.9 2.42-.9.48 1.22.18 2.12.09 2.34.56.62.9 1.41.9 2.37 0 3.38-2.06 4.13-4.02 4.35.32.28.6.82.6 1.66v2.46c0 .23.16.5.61.42A8.7 8.7 0 0 0 12 3.3Z"></path>
+                  </svg>
+                </a>
+              <a class="button button-quiet" href="mailto:jianbincui@yahoo.com" data-i18n="actions.email">Email me</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal reveal-delay-1">
+            <figure class="hero-photo-frame">
+              <img
+                class="hero-photo"
+                src="./个人照片.png"
+                alt="Jianbin Cui smiling by the water"
+                data-i18n-alt="hero.photoAlt"
+                width="950"
+                height="798"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <section class="section container" id="experience" aria-labelledby="experience-title">
+          <div class="section-heading reveal">
+            <p class="section-index" data-i18n="experience.index">01 / Experience</p>
+            <div>
+              <h2 id="experience-title" data-i18n="experience.title">Working Experience</h2>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <div class="timeline-date" data-i18n="experience.toolbx.date">02/2025—Now</div>
+              <div class="timeline-marker" aria-hidden="true"><span></span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <p class="role-kicker" data-i18n="experience.toolbx.role">Software Developer</p>
+                    <h3>ToolBX US Inc.</h3>
+                  </div>
+                  <span class="location" data-i18n="location.toronto">Toronto, Canada</span>
+                </div>
+                <ul class="experience-list">
+                  <li data-i18n-html="experience.toolbx.1">Built and maintained ERP integration services in a TypeScript-based e-commerce backend, enabling real-time status tracking and frontend visualization for Orders, Quotes, and Payments.</li>
+                  <li data-i18n-html="experience.toolbx.2">Cut legacy Payment sync runtime by <strong>50%</strong> through queryBuilder optimization, indexing, batch operations, and removal of redundant queries.</li>
+                  <li data-i18n-html="experience.toolbx.3">Reduced manual intervention by over <strong>80%</strong> in remote dealer terminal automation with robust RPA retry logic.</li>
+                  <li data-i18n-html="experience.toolbx.4">Reached over <strong>95%</strong> unit test coverage with Jest, mocks, stubs, and type-safe fixtures.</li>
+                </ul>
+                <div class="tag-row" aria-label="Technologies used" data-i18n-label="labels.technologies">
+                  <span>TypeScript</span><span>SQL</span><span>Jest</span><span>RPA</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-date">09/2023—04/2024</div>
+              <div class="timeline-marker" aria-hidden="true"><span></span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <p class="role-kicker" data-i18n="experience.fgf.role">.NET Software Developer Co-op</p>
+                    <h3>FGF Brands Inc.</h3>
+                  </div>
+                  <span class="location" data-i18n="location.toronto">Toronto, Canada</span>
+                </div>
+                <ul class="experience-list">
+                  <li data-i18n-html="experience.fgf.1">Developed and continuously improved .NET Core and Framework MVC applications used by <strong>5,000+</strong> employees.</li>
+                  <li data-i18n-html="experience.fgf.2">Implemented a front-end Access Control System with HTML, CSS, React, and Kendo UI, improving loading speed by <strong>30%</strong>.</li>
+                  <li data-i18n="experience.fgf.3">Built an end-to-end Non-Conformance Report system with ASP.NET, covering validation and data processing.</li>
+                  <li data-i18n="experience.fgf.4">Set up Azure DevOps CI/CD pipelines to ship updates on time with no downtime.</li>
+                </ul>
+                <div class="tag-row" aria-label="Technologies used" data-i18n-label="labels.technologies">
+                  <span>.NET</span><span>React</span><span>ASP.NET</span><span>Azure DevOps</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-date">02/2022—08/2022</div>
+              <div class="timeline-marker" aria-hidden="true"><span></span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <p class="role-kicker" data-i18n="experience.sinopec.role">Software Developer Intern</p>
+                    <h3>Sinopec Geophysical Corporation</h3>
+                  </div>
+                  <span class="location" data-i18n="location.shandong">Shandong, China</span>
+                </div>
+                <ul class="experience-list">
+                  <li data-i18n="experience.sinopec.1">Overhauled the item details module of an internal procurement platform using Java Spring Boot, MySQL, and Hibernate.</li>
+                  <li data-i18n="experience.sinopec.2">Reduced query response times and prevented thread blocking with optimized indexes and asynchronous data processing.</li>
+                </ul>
+                <div class="tag-row" aria-label="Technologies used" data-i18n-label="labels.technologies">
+                  <span>Java</span><span>Spring Boot</span><span>MySQL</span><span>Hibernate</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="timeline-item timeline-item-last reveal">
+              <div class="timeline-date">06/2023—06/2024</div>
+              <div class="timeline-marker" aria-hidden="true"><span></span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <p class="role-kicker" data-i18n="experience.mcmaster.role">AI Research Intern</p>
+                    <h3>McMaster University</h3>
+                  </div>
+                  <span class="location" data-i18n="location.hamiltonCanada">Hamilton, Canada</span>
+                </div>
+                <ul class="experience-list">
+                  <li data-i18n-html="experience.mcmaster.1">Co-authored <em>Interpretable Deep Graph-level Clustering: A Prototype-based Approach</em>, accepted at ICPR 2024.</li>
+                  <li data-i18n="experience.mcmaster.2">Proposed an unsupervised, interpretable graph clustering framework implemented with PyTorch.</li>
+                </ul>
+                <div class="tag-row" aria-label="Technologies used" data-i18n-label="labels.technologies">
+                  <span>PyTorch</span><span>Graph ML</span><span>Research</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section container" id="education" aria-labelledby="education-title">
+          <div class="section-heading reveal">
+            <p class="section-index" data-i18n="education.index">02 / Education</p>
+            <div>
+              <h2 id="education-title" data-i18n="education.title">Education</h2>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <div class="timeline-date">2022—2025</div>
+              <div class="timeline-marker" aria-hidden="true"><span></span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <p class="role-kicker" data-i18n="education.master.kicker">Graduate study</p>
+                    <h3>McMaster University</h3>
+                  </div>
+                  <span class="location" data-i18n="location.hamiltonOntario">Hamilton, Ontario</span>
+                </div>
+                <p class="education-degree" data-i18n="education.master.degree">Master of Engineering in Computing and Software (Co-op) · GPA 11/12</p>
+              </div>
+            </article>
+
+            <article class="timeline-item timeline-item-last reveal">
+              <div class="timeline-date">2018—2022</div>
+              <div class="timeline-marker" aria-hidden="true"><span></span></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <p class="role-kicker" data-i18n="education.bachelor.kicker">Undergraduate study</p>
+                    <h3>Beihang University</h3>
+                  </div>
+                  <span class="location" data-i18n="location.beijing">Beijing, China</span>
+                </div>
+                <p class="education-degree" data-i18n="education.bachelor.degree">Bachelor of Engineering in Computer Science and Technology · GPA 89/100 · Rank 10%</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-research container" id="research" aria-labelledby="research-title">
+          <div class="section-heading reveal">
+            <p class="section-index" data-i18n="research.index">03 / Research</p>
+            <div>
+              <h2 id="research-title" data-i18n="research.title">Research</h2>
+            </div>
+          </div>
+
+          <article class="project-card research-card spotlight-card reveal reveal-delay-1">
+            <div class="project-main">
+              <div class="project-label">
+                <span class="project-glyph" aria-hidden="true">✦</span>
+                <span data-i18n="research.label">Publication · ICPR 2024</span>
+              </div>
+              <h3 data-i18n="research.paperTitle">Interpretable Deep Graph-Level Clustering: A Prototype-Based Approach</h3>
+              <p class="project-summary" data-i18n="research.summary">An interpretable deep graph-level clustering framework that groups unlabelled graphs while explaining why each graph belongs to its cluster, validated across six benchmark datasets.</p>
+              <div class="project-actions">
+                <a class="button button-primary" href="https://link.springer.com/chapter/10.1007/978-3-031-78128-5_8" target="_blank" rel="noreferrer">
+                  <span data-i18n="research.readPaper">Read paper</span>
+                  <svg class="icon icon-external" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 5h5v5M19 5l-8 8"></path><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path>
+                  </svg>
+                </a>
+                <a class="button button-quiet" href="https://github.com/cjbbb/IDGC-implementation" target="_blank" rel="noreferrer">
+                  <span data-i18n="research.sourceCode">Source code</span>
+                  <svg class="icon icon-external" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 5h5v5M19 5l-8 8"></path><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path>
+                  </svg>
+                </a>
+                <span class="project-note" data-i18n="research.note">Jianbin Cui &amp; Lingyang Chu · Springer LNCS 15304</span>
+              </div>
+            </div>
+            <div class="project-side research-side">
+              <div class="research-visual" aria-hidden="true">
+                <img src="./research-idgc.png" alt="" width="1698" height="956" />
+              </div>
+              <div class="tag-row project-tags" aria-label="Research technologies" data-i18n-label="labels.researchTechnologies">
+                <span data-i18n="research.tags.graph">Graph ML</span><span data-i18n="research.tags.interpretability">Interpretability</span><span data-i18n="research.tags.clustering">Clustering</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="section section-projects container" id="projects" aria-labelledby="projects-title">
+          <div class="section-heading reveal">
+            <p class="section-index" data-i18n="project.index">04 / Selected work</p>
+            <div>
+              <h2 id="projects-title" data-i18n="project.title">Project</h2>
+            </div>
+          </div>
+
+          <article class="project-card spotlight-card reveal reveal-delay-1">
+            <div class="project-main">
+              <div class="project-label"><span class="project-glyph" aria-hidden="true">✦</span> <span data-i18n="project.label">Open source · 2024</span></div>
+              <h3>Auto_Jobs_Applier_AIHawk</h3>
+              <p class="project-summary" data-i18n="project.summary">An open-source job application agent powered by large language models, designed to run locally and turn a repetitive workflow into a guided one.</p>
+              <div class="project-actions">
+                <a class="button button-primary" href="https://github.com/AIHawk-co/Auto_Jobs_Applier" target="_blank" rel="noreferrer">
+                  <span data-i18n="project.view">View project</span>
+                  <svg class="icon icon-external" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 5h5v5M19 5l-8 8"></path><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path>
+                  </svg>
+                </a>
+                <span class="project-note" data-i18n="project.note">Core contributor / collaborator</span>
+              </div>
+            </div>
+            <div class="project-side">
+              <div class="project-diagram" aria-hidden="true">
+                <div class="diagram-node diagram-node-top" data-i18n="project.diagram.intent">Intent</div>
+                <div class="diagram-line diagram-line-one"></div>
+                <div class="diagram-line diagram-line-two"></div>
+                <div class="diagram-node diagram-node-center" data-i18n="project.diagram.agent">Agent</div>
+                <div class="diagram-line diagram-line-three"></div>
+                <div class="diagram-node diagram-node-bottom" data-i18n="project.diagram.action">Action</div>
+              </div>
+              <div class="tag-row project-tags" aria-label="Technologies used" data-i18n-label="labels.technologies">
+                <span>Python</span><span>Selenium</span><span>LangChain</span><span>LLMs</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="section container contact-section" id="contact" aria-labelledby="contact-title">
+          <div class="contact-card spotlight-card reveal">
+            <div>
+              <p class="section-index" data-i18n="contact.index">05 / Say hello</p>
+              <h2 id="contact-title" data-i18n="contact.title">Have a system worth making clearer?</h2>
+            </div>
+            <div class="contact-actions">
+              <a class="button button-primary" href="mailto:jianbincui@yahoo.com">jianbincui@yahoo.com <span aria-hidden="true">↗</span></a>
+              <div class="contact-links">
+                <a href="https://www.linkedin.com/in/jianbin-cui/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/cjbbb" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="tel:+8618610809949">+86 18610809949</a>
+                <a href="tel:+16475672110">+1 (647) 567-2110</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer container">
+        <p>© <span data-year>2026</span> Cui Jianbin</p>
+        <a href="#top" class="back-to-top"><span data-i18n="footer.backToTop">Back to top</span> <span aria-hidden="true">↑</span></a>
+      </footer>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+# Private/local source files
+CV_Cui,Jianbin.docx
+tmp/
+
+# Local system files
+.DS_Store
