@@ -23,6 +23,11 @@
   --radius-medium: 1.25rem;
   --radius-small: 0.75rem;
   --container: 1180px;
+  --page-gutter: 1.5rem;
+  --hero-photo-max: 31rem;
+  --timeline-date-column: 9rem;
+  --timeline-marker-column: 3rem;
+  --timeline-gap: 1.5rem;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -117,7 +122,7 @@ a.button,
 }
 
 .container {
-  width: min(calc(100% - 3rem), var(--container));
+  width: min(calc(100% - (var(--page-gutter) * 2)), var(--container));
   margin-inline: auto;
 }
 
@@ -181,7 +186,7 @@ a.button,
   min-height: 4.7rem;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: clamp(0.65rem, 1.6vw, 1rem);
 }
 
 .wordmark {
@@ -211,9 +216,9 @@ a.button,
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.45rem;
+  gap: clamp(0.8rem, 1.6vw, 1.45rem);
   margin-left: auto;
-  margin-right: 1.5rem;
+  margin-right: clamp(0.75rem, 2vw, 1.5rem);
   color: var(--muted);
   font-size: 0.83rem;
   font-weight: 600;
@@ -469,7 +474,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 }
 
 .hero-photo-frame {
-  width: min(100%, 31rem);
+  width: min(100%, var(--hero-photo-max));
   aspect-ratio: 0.97;
   margin: 0;
   overflow: hidden;
@@ -831,7 +836,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
   position: absolute;
   top: 0.75rem;
   bottom: 1.5rem;
-  left: 10.55rem;
+  left: calc(var(--timeline-date-column) + var(--timeline-gap) + (var(--timeline-marker-column) / 2));
   width: 1px;
   background: linear-gradient(var(--line-strong), var(--line));
   content: "";
@@ -839,8 +844,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 9rem 3rem minmax(0, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: var(--timeline-date-column) var(--timeline-marker-column) minmax(0, 1fr);
+  gap: var(--timeline-gap);
   min-height: 16rem;
 }
 
@@ -1275,66 +1280,19 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 }
 
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 4rem;
-    min-height: auto;
-    padding-top: 6.2rem;
-    padding-bottom: 5rem;
-  }
-
-  .hero h1 {
-    max-width: 13ch;
-  }
-
-  .hero-visual {
-    max-width: 39rem;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .section-heading {
-    grid-template-columns: 8rem minmax(0, 1fr);
-  }
-
-  .project-card {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .project-side {
-    min-height: 20rem;
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
-
-  .project-diagram {
-    min-height: 13rem;
-  }
-
-  .diagram-node-center { top: 5.4rem; }
-  .diagram-line-one { height: 2.2rem; }
-  .diagram-line-two { height: 7.8rem; }
-  .diagram-line-three { top: 7.8rem; height: 4rem; }
-}
-
-@media (max-width: 720px) {
-  .container {
-    width: min(calc(100% - 2rem), var(--container));
-  }
-
   .menu-toggle {
     display: inline-grid;
   }
 
   .header-inner {
-    min-height: 4.25rem;
+    min-height: 4.5rem;
   }
 
   .site-nav {
     position: absolute;
     top: calc(100% + 0.55rem);
-    right: 1rem;
-    left: 1rem;
+    right: var(--page-gutter);
+    left: var(--page-gutter);
     display: grid;
     gap: 0.25rem;
     margin: 0;
@@ -1368,6 +1326,64 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 
   .site-nav a::after {
     display: none;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4rem;
+    min-height: auto;
+    padding-top: 6.2rem;
+    padding-bottom: 5rem;
+  }
+
+  .hero h1 {
+    max-width: 13ch;
+  }
+
+  .hero-visual {
+    max-width: 39rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-photo-frame {
+    width: min(100%, 36rem);
+  }
+
+  .section-heading {
+    grid-template-columns: 8rem minmax(0, 1fr);
+  }
+
+  .project-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-side {
+    min-height: 20rem;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .project-diagram {
+    min-height: 13rem;
+  }
+
+  .diagram-node-center { top: 5.4rem; }
+  .diagram-line-one { height: 2.2rem; }
+  .diagram-line-two { height: 7.8rem; }
+  .diagram-line-three { top: 7.8rem; height: 4rem; }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --page-gutter: 1rem;
+    --timeline-date-column: 0rem;
+    --timeline-marker-column: 1.6rem;
+    --timeline-gap: 0.75rem;
+  }
+
+  .header-inner {
+    min-height: 4.25rem;
   }
 
   .hero {
@@ -1423,13 +1439,13 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
   }
 
   .timeline::before {
-    left: 0.35rem;
+    left: calc(var(--timeline-marker-column) / 2);
   }
 
   .timeline-item {
     display: grid;
-    grid-template-columns: 1.6rem minmax(0, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: var(--timeline-marker-column) minmax(0, 1fr);
+    gap: var(--timeline-gap);
     min-height: auto;
   }
 
@@ -1505,7 +1521,88 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
 
 }
 
+@media (min-width: 901px) and (max-width: 1199px) {
+  :root {
+    --timeline-date-column: 8rem;
+    --timeline-marker-column: 2.5rem;
+    --timeline-gap: 1rem;
+  }
+
+  .hero {
+    gap: clamp(2.5rem, 6vw, 4rem);
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.9fr);
+  }
+
+  .hero-photo-frame {
+    width: min(100%, 28rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container: 1320px;
+    --hero-photo-max: 34rem;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(28rem, 0.92fr);
+    gap: clamp(4.5rem, 7vw, 8.5rem);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container: 1440px;
+    --hero-photo-max: 36rem;
+  }
+
+  .hero {
+    min-height: min(54rem, calc(100svh - 4.7rem));
+    padding-top: 8rem;
+    padding-bottom: 7.5rem;
+    gap: clamp(5rem, 7vw, 10rem);
+  }
+
+  .section {
+    padding-top: clamp(6.8rem, 7vw, 8.5rem);
+    padding-bottom: clamp(6.8rem, 7vw, 8.5rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .project-main,
+  .project-side {
+    padding: 1.3rem;
+  }
+
+  .project-side {
+    min-height: 18rem;
+  }
+
+  .project-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-note {
+    line-height: 1.4;
+  }
+
+  .research-visual {
+    min-height: 13rem;
+  }
+
+  .contact-card {
+    padding: 1.35rem;
+  }
+}
+
 @media (max-width: 430px) {
+  :root {
+    --page-gutter: 0.875rem;
+  }
+
   .wordmark-name {
     display: none;
   }
