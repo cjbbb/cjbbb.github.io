@@ -6,10 +6,6 @@
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const siteNav = document.querySelector("[data-site-nav]");
   const progress = document.querySelector("[data-progress]");
-  const copyButton = document.querySelector("[data-copy-email]");
-  const copyLabel = document.querySelector("[data-copy-label]");
-  const copyStatus = document.querySelector("[data-copy-status]");
-  const email = "jianbincui@yahoo.com";
   const themeStorageKey = "jianbin-cv-theme-v2";
   const languageStorageKey = "jianbin-cv-language";
   const mainContent = document.querySelector("#main-content");
@@ -121,7 +117,18 @@
     }
   })();
 
-  const preferredTheme = "light";
+  const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const preferredTheme = systemThemeQuery.matches ? "dark" : "light";
+
+  systemThemeQuery.addEventListener("change", (e) => {
+    try {
+      if (!window.localStorage.getItem(themeStorageKey)) {
+        setTheme(e.matches ? "dark" : "light");
+      }
+    } catch {
+      // Local storage unavailable
+    }
+  });
 
   function updateThemeLabel() {
     if (!themeToggle) return;
@@ -271,20 +278,20 @@
 
   siteNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
-  copyButton?.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(email);
-      if (copyLabel) copyLabel.textContent = "Copied";
-      if (copyStatus) copyStatus.textContent = "✓";
-    } catch {
-      window.location.href = `mailto:${email}`;
-      if (copyLabel) copyLabel.textContent = "Opening mail";
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && siteNav?.classList.contains("is-open")) {
+      closeMenu();
     }
+  });
 
-    window.setTimeout(() => {
-      if (copyLabel) copyLabel.textContent = "Copy email";
-      if (copyStatus) copyStatus.textContent = "";
-    }, 2200);
+  document.addEventListener("pointerdown", (e) => {
+    if (
+      siteNav?.classList.contains("is-open") &&
+      !siteNav.contains(e.target) &&
+      !menuToggle?.contains(e.target)
+    ) {
+      closeMenu();
+    }
   });
 
   let progressFrame = 0;
@@ -347,10 +354,31 @@
   }
 
   document.querySelectorAll(".spotlight-card").forEach((card) => {
-    card.addEventListener("pointermove", (event) => {
+    let rafId = 0;
+    let nextEvent = null;
+
+    const updatePointer = () => {
+      if (!nextEvent) return;
       const bounds = card.getBoundingClientRect();
-      card.style.setProperty("--pointer-x", `${event.clientX - bounds.left}px`);
-      card.style.setProperty("--pointer-y", `${event.clientY - bounds.top}px`);
+      card.style.setProperty("--pointer-x", `${nextEvent.clientX - bounds.left}px`);
+      card.style.setProperty("--pointer-y", `${nextEvent.clientY - bounds.top}px`);
+      rafId = 0;
+      nextEvent = null;
+    };
+
+    card.addEventListener("pointermove", (event) => {
+      nextEvent = event;
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(updatePointer);
+      }
+    });
+
+    card.addEventListener("pointerleave", () => {
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+        rafId = 0;
+        nextEvent = null;
+      }
     });
   });
 
